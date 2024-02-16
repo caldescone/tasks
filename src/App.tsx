@@ -1,32 +1,44 @@
 import React from "react";
 import "./App.css";
-import { Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 function App(): JSX.Element {
     return (
         <div className="App">
+            <h1>A website about Peanut M&Ms</h1>
             <header className="App-header">
-                <h1>A website about Peanut M&Ms</h1>
                 <img
-                    src="../images/peanutmms.jpeg"
+                    src={require("./images/peanutmms.jpeg")}
                     alt="A pack of peanut M&Ms"
+                    height="300"
                 />
                 UD CISC275 with React Hooks and TypeScript - Christopher
                 Calderone - Hello World
             </header>
-            List with Three Elements:
-            <ol>
+            <ul>
                 <li> Peanuts </li>
                 <li> Chocolate </li>
                 <li> Goodness </li>
-            </ol>
+            </ul>
             <Button onClick={() => console.log("Hello World!")}>
                 Log Hello World
             </Button>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
+            <Container>
+                <Row>
+                    <Col>
+                        Pros: Peaut M&Ms are the best, they are very good to
+                        eat, everyone will ask for them = more friends
+                    </Col>
+                    <Col>
+                        Cons:
+                        <img
+                            src={require("./images/nothing photo.jpeg")}
+                            alt="Absolutely nothing"
+                            height="200"
+                        />
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
