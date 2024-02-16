@@ -44,12 +44,7 @@ function App(): JSX.Element {
                                 background: "#8B8000"
                             }}
                         ></div>
-                        Cons:
-                        <img
-                            src={require("./images/nothing photo.jpeg")}
-                            alt="Absolutely nothing"
-                            height="200"
-                        />
+                        Cons: nothing
                     </Col>
                 </Row>
             </Container>
