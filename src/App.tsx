@@ -26,10 +26,24 @@ function App(): JSX.Element {
             <Container>
                 <Row>
                     <Col>
+                        <div
+                            style={{
+                                height: 10,
+                                width: 700,
+                                background: "#8B8000"
+                            }}
+                        ></div>
                         Pros: Peaut M&Ms are the best, they are very good to
-                        eat, everyone will ask for them = more friends
+                        eat, everyone will ask for them = friends
                     </Col>
                     <Col>
+                        <div
+                            style={{
+                                height: 10,
+                                width: 500,
+                                background: "#8B8000"
+                            }}
+                        ></div>
                         Cons:
                         <img
                             src={require("./images/nothing photo.jpeg")}
