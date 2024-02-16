@@ -81,11 +81,17 @@ FAIL src/HtmlCss.test.tsx
               [36m<div[39m
                 [33mclass[39m=[32m"col"[39m
               [36m>[39m
-                [0mPros: Peaut M&Ms are the best, they are very good to eat, everyone will ask for them = more friends[0m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"height: 10px; width: 700px; background: rgb(139, 128, 0);"[39m
+                [36m/>[39m
+                [0mPros: Peaut M&Ms are the best, they are very good to eat, everyone will ask for them = friends[0m
               [36m</div>[39m
               [36m<div[39m
                 [33mclass[39m=[32m"col"[39m
               [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"height: 10px; width: 500px; background: rgb(139, 128, 0);"[39m
+                [36m/>[39m
                 [0mCons:[0m
                 [36m<img[39m
                   [33malt[39m=[32m"Absolutely nothing"[39m
@@ -123,5 +129,5 @@ All files |     100 |      100 |     100 |     100 |
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       1 failed, 8 passed, 9 total
 Snapshots:   0 total
-Time:        2.626 s
+Time:        2.722 s
 Ran all test suites.
