@@ -28,7 +28,11 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const intArray = numbers.map((num: string): number => {
+        const intVal = parseInt(num, 10);
+        return isNaN(intVal) ? 0 : intVal;
+    });
+    return intArray;
 }
 
 /**
@@ -51,8 +55,12 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
-};
+    return messages
+        .filter((message) => !message.endsWith("?"))
+        .map((message) =>
+            message.endsWith("!") ? message.toUpperCase() : message
+        );
+}
 
 /**
  * Consumes an array of words and returns the number of words that are LESS THAN
@@ -87,7 +95,12 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends == null) {
+        return "0=0";
+    }
+    const sum = addends.reduce((total, currentVal) => total + currentVal, 0);
+    const adds = addends.join("+");
+    return `${sum}=${adds}`;
 }
 
 /**
@@ -100,5 +113,16 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    if (values == null) {
+        return [];
+    }
+    const firstNegativeIndex = values.findIndex((val) => val < 0);
+    const sum = values.reduce((total, currentVal) => total + currentVal, 0);
+    if (firstNegativeIndex === -1) {
+        return values.concat(sum);
+    }
+    return values
+        .slice(0, firstNegativeIndex + 1)
+        .concat(sum)
+        .concat(values.slice(firstNegativeIndex + 1));
 }
