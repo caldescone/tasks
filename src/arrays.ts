@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -117,13 +118,15 @@ export function injectPositive(values: number[]): number[] {
     //     return [0];
     // }
     const index = values.findIndex((num: number): boolean => num < 0);
-    const arrayToSum = values.slice(0, index === -1 ? values.length : index);
-    const sum = arrayToSum.reduce(
-        (total: number, currentVal: number) => total + currentVal, 0
+    const array = values.slice(0, index === -1 ? values.length : index);
+    const sum = array.reduce(
+        (total: number, currentVal: number) => total + currentVal,
+        0
     );
     return index === -1
-        ? arrayToSum.concat(sum)
-        : arrayToSum.concat(values[index])
+        ? array.concat(sum)
+        : array
+            .concat(values[index])
             .concat(sum)
             .concat(values.slice(index + 1));
 }
