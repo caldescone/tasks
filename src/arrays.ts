@@ -60,7 +60,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
         .map((message) =>
             message.endsWith("!") ? message.toUpperCase() : message
         );
-}
+};
 
 /**
  * Consumes an array of words and returns the number of words that are LESS THAN
@@ -113,16 +113,17 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    if (values == null) {
-        return [];
-    }
-    const firstNegativeIndex = values.findIndex((val) => val < 0);
-    const sum = values.reduce((total, currentVal) => total + currentVal, 0);
-    if (firstNegativeIndex === -1) {
-        return values.concat(sum);
-    }
-    return values
-        .slice(0, firstNegativeIndex + 1)
-        .concat(sum)
-        .concat(values.slice(firstNegativeIndex + 1));
+    // if (values == null || values.length === 0) {
+    //     return [0];
+    // }
+    const index = values.findIndex((num: number): boolean => num < 0);
+    const arrayToSum = values.slice(0, index === -1 ? values.length : index);
+    const sum = arrayToSum.reduce(
+        (total: number, currentVal: number) => total + currentVal, 0
+    );
+    return index === -1
+        ? arrayToSum.concat(sum)
+        : arrayToSum.concat(values[index])
+            .concat(sum)
+            .concat(values.slice(index + 1));
 }
