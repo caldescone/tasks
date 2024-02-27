@@ -153,5 +153,5 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    return { ...contentQuestion, points, published: false };
 }
