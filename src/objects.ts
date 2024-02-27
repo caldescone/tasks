@@ -84,7 +84,13 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    if (question.type === "multiple_choice_question") {
+        return `${"# " + question.name}\n${
+            question.body
+        }\n${question.options.map((option: string) => `- ${option}`)}`;
+    } else {
+        return `${"# " + question.name}\n${question.body}`;
+    }
 }
 
 /**
