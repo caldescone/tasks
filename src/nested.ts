@@ -1,7 +1,7 @@
 import { rename } from "fs";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { duplicateQuestion, makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -210,14 +210,20 @@ export function changeQuestionTypeById(
     newQuestionType: QuestionType
 ): Question[] {
     const changeQuestionTypeById = questions.map(
-        (questions: Question): Question => ({
-            ...questions,
-            type: questions.id === targetId ? newQuestionType : questions.type,
-            options:
-                newQuestionType === "multiple_choice_question"
-                    ? questions.options
-                    : []
-        })
+        (question: Question): Question => {
+            if (question.id === targetId) {
+                return {
+                    ...question,
+                    type: newQuestionType,
+                    options:
+                        newQuestionType === "multiple_choice_question"
+                            ? question.options
+                            : []
+                };
+            } else {
+                return question;
+            }
+        }
     );
     return changeQuestionTypeById;
 }
@@ -266,11 +272,15 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    const duplicateQuestionInArray = questions.map(
-        (questions: Question): Question => ({
-            ...questions,
-            id: questions.id === targetId ? newId : questions.id
-        })
+    const duplicateQuestionInArray = questions.flatMap(
+        (question: Question): Question[] => {
+            if (question.id === targetId) {
+                const duplicate = duplicateQuestion(newId, question);
+                return [question, duplicate];
+            } else {
+                return [question];
+            }
+        }
     );
     return duplicateQuestionInArray;
 }
