@@ -209,7 +209,7 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    const renameQuestionById = questions.map(
+    const changeQuestionTypeById = questions.map(
         (questions: Question): Question => ({
             ...questions,
             type: questions.id === targetId ? newQuestionType : questions.type,
@@ -219,26 +219,33 @@ export function changeQuestionTypeById(
                     : []
         })
     );
-    return renameQuestionById;
+    return changeQuestionTypeById;
 }
 
-/**
- * Consumes an array of Questions and produces a new array of Questions, where all
- * the Questions are the same EXCEPT for the one with the given `targetId`. That
- * Question should be the same EXCEPT that its `option` array should have a new element.
- * If the `targetOptionIndex` is -1, the `newOption` should be added to the end of the list.
- * Otherwise, it should *replace* the existing element at the `targetOptionIndex`.
- *
- * Remember, if a function starts getting too complicated, think about how a helper function
- * can make it simpler! Break down complicated tasks into little pieces.
- */
+
 export function editOption(
     questions: Question[],
     targetId: number,
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const editOption = questions.map((question: Question): Question => {
+        if (question.id === targetId) {
+            const options = [...question.options];
+            if (targetOptionIndex === -1) {
+                options.push(newOption);
+            } else {
+                options[targetOptionIndex] = newOption;
+            }
+            return {
+                ...question,
+                options
+            };
+        } else {
+            return question;
+        }
+    });
+    return editOption;
 }
 
 /***
@@ -252,5 +259,11 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const duplicateQuestionInArray = questions.map(
+        (questions: Question): Question => ({
+            ...questions,
+            id: questions.id === targetId ? newId : questions.id
+        })
+    );
+    return duplicateQuestionInArray;
 }
