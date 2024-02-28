@@ -222,6 +222,13 @@ export function changeQuestionTypeById(
     return changeQuestionTypeById;
 }
 
+/**
+ * Consumes an array of Questions and produces a new array of Questions, where all
+ * the Questions are the same EXCEPT for the one with the given `targetId`. That
+ * Question should be the same EXCEPT that its `option` array should have a new element.
+ * If the `targetOptionIndex` is -1, the `newOption` should be added to the end of the list.
+ * Otherwise, it should *replace* the existing element at the `targetOptionIndex`.
+ */
 
 export function editOption(
     questions: Question[],
