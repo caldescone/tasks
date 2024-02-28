@@ -1,3 +1,4 @@
+import { rename } from "fs";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { makeBlankQuestion } from "./objects";
@@ -187,7 +188,13 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    const renameQuestionById = questions.map(
+        (questions: Question): Question => ({
+            ...questions,
+            name: questions.id === targetId ? newName : questions.name
+        })
+    );
+    return renameQuestionById;
 }
 
 /***
