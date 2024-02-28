@@ -113,12 +113,10 @@ id,name,options,points,published
  */
 export function toCSV(questions: Question[]): string {
     const toCSV = questions.map(
-        (questions: Question): string =>
-            `${questions.id}, ${questions.name}, ${questions.options}, ${
-                questions.points
-            }, ${questions.published}, ${"\n"}`
+        (question: Question): string =>
+            `${question.id},${question.name},${question.options.length},${question.points},${question.published}`
     );
-    return `id,name,options,points,published ${"\n"} ${toCSV}`;
+    return `id,name,options,points,published\n${toCSV.join("\n")}`;
 }
 
 /**
