@@ -1,4 +1,3 @@
-import { rename } from "fs";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { duplicateQuestion, makeBlankQuestion } from "./objects";
