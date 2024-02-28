@@ -85,7 +85,7 @@ export function sumPublishedPoints(questions: Question[]): number {
     const sumPublishedPoints = questions.reduce(
         (currentSum: number, questions: Question) => {
             if (questions.published) {
-                currentSum += 1;
+                currentSum += questions.points;
             }
             return currentSum;
         },
