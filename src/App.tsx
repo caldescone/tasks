@@ -10,13 +10,7 @@ import { Counter } from "./components/Counter";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <h1>A website about Peanut M&Ms</h1>
             <header className="App-header">
-                <img
-                    src={require("./images/peanutmms.jpeg")}
-                    alt="A pack of peanut M&Ms"
-                    height="300"
-                />
                 UD CISC275 with React Hooks and TypeScript - Christopher
                 Calderone - Hello World
             </header>
