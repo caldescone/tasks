@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 
 function App(): JSX.Element {
     return (
@@ -15,39 +20,18 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript - Christopher
                 Calderone - Hello World
             </header>
-            <ul>
-                <li> Peanuts </li>
-                <li> Chocolate </li>
-                <li> Goodness </li>
-            </ul>
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button>
-            <Container>
-                <Row>
-                    <Col>
-                        <div
-                            style={{
-                                height: 10,
-                                width: 700,
-                                background: "#8B8000"
-                            }}
-                        ></div>
-                        Pros: Peaut M&Ms are the best, they are very good to
-                        eat, everyone will ask for them = friends
-                    </Col>
-                    <Col>
-                        <div
-                            style={{
-                                height: 10,
-                                width: 500,
-                                background: "#8B8000"
-                            }}
-                        ></div>
-                        Cons: nothing
-                    </Col>
-                </Row>
-            </Container>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
