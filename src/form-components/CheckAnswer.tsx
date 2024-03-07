@@ -12,6 +12,7 @@ export function CheckAnswer({
     }
     return (
         <div>
+            <h3>Check Answer</h3>
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Label>Check Answer</Form.Label>
                 <Form.Control
@@ -22,7 +23,6 @@ export function CheckAnswer({
                 />
             </Form.Group>
             <div>The Answer is {answer === expectedAnswer ? "✔️" : "❌"}.</div>
-            <h3>Check Answer</h3>
         </div>
     );
 }
