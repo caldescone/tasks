@@ -21,7 +21,7 @@ export function CheckAnswer({
                     placeholder="Enter Answer"
                 />
             </Form.Group>
-            <div>The Answer is {answer ? expectedAnswer : "Incorrect"}.</div>
+            <div>The Answer is {answer === expectedAnswer ? "✔️" : "❌"}.</div>
             <h3>Check Answer</h3>
         </div>
     );
