@@ -18,30 +18,32 @@ export function EditMode(): JSX.Element {
                 />
             </div>
             <div>
-                <Form.Group controlId="formBasicTextBox">
-                    <Form.Label>
-                        {name} is {student ? "a student" : "not a student"}
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                        placeholder="Enter Name"
-                        disabled={!editMode}
-                    />
-                </Form.Group>
+                {editMode && (
+                    <Form.Group controlId="formBasicTextBox">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={name}
+                            onChange={(event) => setName(event.target.value)}
+                            disabled={!editMode}
+                        />
+                    </Form.Group>
+                )}
             </div>
             <div>
-                <Form.Group controlId="formBasicCheckBox">
+                <Form.Group controlId="form">
                     <Form.Check
                         type="checkbox"
                         label="Student"
                         checked={student}
-                        onChange={(e) => setStudent(e.target.checked)}
+                        onChange={() => setStudent(!student)}
                         disabled={!editMode}
                     />
                 </Form.Group>
             </div>
+            <p>
+                {name} is {student ? "a student" : "not a student"}
+            </p>
         </div>
     );
 }
