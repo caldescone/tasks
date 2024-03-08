@@ -31,19 +31,23 @@ export function EditMode(): JSX.Element {
                 )}
             </div>
             <div>
-                <Form.Group controlId="form">
-                    <Form.Check
-                        type="checkbox"
-                        label="Student"
-                        checked={student}
-                        onChange={() => setStudent(!student)}
-                        disabled={!editMode}
-                    />
-                </Form.Group>
+                {editMode && (
+                    <Form.Group controlId="form">
+                        <Form.Check
+                            type="checkbox"
+                            label="Student"
+                            checked={student}
+                            onChange={() => setStudent(!student)}
+                            disabled={!editMode}
+                        />
+                    </Form.Group>
+                )}
             </div>
-            <p>
-                {name} is {student ? "a student" : "not a student"}
-            </p>
+            {!editMode && (
+                <p>
+                    {name} is {student ? "a student" : "not a student"}
+                </p>
+            )}
         </div>
     );
 }
